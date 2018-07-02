@@ -84,6 +84,7 @@ app.controller("guardar", function($scope, $http, $location, $rootScope){
 						
 						localStorage.setItem("comidas", JSON.stringify($scope.array_pendientes)) 
 							$scope.comidas = JSON.parse(localStorage.comidas)
+							$location.path("/guardados");
 						console.log("error");
 					});	
 	}
@@ -107,20 +108,25 @@ app.controller("guardar", function($scope, $http, $location, $rootScope){
 				$scope.comidas = JSON.parse(localStorage.server).concat(JSON.parse(localStorage.comidas));
 				$scope.dato = $scope.comidas;
 			}
-				$scope.sinconexion = "Recetas (datos locales)";
+				$scope.sinconexion = "Datos Locales(sin conexion)";
 			}
 		);
 	$scope.ing = [{ingrediente:''}];
 	$scope.addIng = function(){
 		$scope.ing.push({ingrediente:''});
 	}
+	$scope.delIng = function(i){
+		$scope.ing.splice(i,1);
+	}
 	$scope.ins = [{instruccion:''}];
 	$scope.addIns = function(){
 		$scope.ins.push({instruccion:''});
 	}
+	$scope.delIns = function(i){
+		$scope.ins.splice(i,1);
+	}
 	
 	$scope.guardarFav = function(x){
-		$scope.elegiste = true;
 		$scope.elegidos = x;
 
 		if (!localStorage.favoritos){
@@ -146,13 +152,14 @@ app.controller("guardar", function($scope, $http, $location, $rootScope){
 				}).then(
 					function successCallback(response) {
 						localStorage.removeItem("favoritos");
-							$location.path("/favs");
+						$location.path("/favs");
 						
 					}, function errorCallback(response) {
 						$scope.problema="No se pudo enviar..."
 						
 						localStorage.setItem("favoritos", JSON.stringify($scope.array_favoritos)) 
-							$scope.elegidos = JSON.parse(localStorage.favoritos)
+						$scope.elegidos = JSON.parse(localStorage.favoritos)
+						$location.path("/favs");
 						console.log("error");
 					});
 	}
@@ -168,12 +175,13 @@ app.controller("guardar", function($scope, $http, $location, $rootScope){
 				}).then(
 					function successCallback(response) {
 						localStorage.removeItem("comidas");
-							$location.path("/guardados");
+						$location.path("/guardados");
 						
 					}, function errorCallback(response) {
 						$scope.problema="No se pudo enviar..."
 						
 						localStorage.setItem("comidas", JSON.stringify($scope.dato)) 
+						$location.path("/guardados");
 						console.log("error");
 					});
 	}
@@ -213,7 +221,7 @@ app.controller("cargarFavs", function ($scope, $http, $location){
 				$scope.favoritos = JSON.parse(localStorage.server).concat(JSON.parse(localStorage.favoritos));
 				$scope.dato = JSON.parse(localStorage.favoritos);
 			}
-				$scope.sinconexion = "Favoritos (datos locales)";
+				$scope.sinconexion = "Datos Locales (sin conexion)";
 			}
 		);
 		
@@ -228,12 +236,13 @@ app.controller("cargarFavs", function ($scope, $http, $location){
 				}).then(
 					function successCallback(response) {
 						localStorage.removeItem("favoritos");
-							$location.path("/favs");
+						$location.path("/favs");
 						
 					}, function errorCallback(response) {
 						$scope.problema="No se pudo enviar..."
 						
 						localStorage.setItem("favoritos", JSON.stringify($scope.dato)) 
+						$location.path("/favs");
 						console.log("error");
 					});
 	}

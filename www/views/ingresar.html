@@ -3,22 +3,27 @@
 		<div class="section ingresar" ng-controller="guardar">
 			 <form name="nuevaComida" ng-submit="guardar(dato)">
 				<div class="banner"><h1>Agregar nueva receta</h1></div>
-				<ng-input id='nombre' theme='hoshi' label='Nombre de la comida' ng-required="1" ng-minlength=2 ng-model="dato.nombre" name="nombre" ></ng-input>
+				<div id="nombreCont">
+					<h2>Titulo de la receta</h2>
+					<ng-input id='nombre' theme='hoshi' label='Titulo' ng-required="1" ng-minlength=2 ng-model="dato.nombre" name="nombre" ></ng-input>
+				</div>
+				<div class="ingredientes">
+					<h2>Ingredientes</h2>
+					<div ng-repeat="ingrediente in ing track by $index" class="ingrediente">
+						<ng-input theme='hoshi' label='Ingrediente {{$index+1}}' ng-required="0" ng-model="ing[$index].ingrediente" name="ingrediente{{$index}}" ></ng-input>
+						<ng-input theme='hoshi' label='Cantidad/Notas' ng-required="0" ng-model="ing[$index].cantidad" name="cantidad{{$index}}" ></ng-input>
+						<input id="delIngBtn" type="button" value="&times;" class="btn btn-warning btn-block" ng-click="delIng($index)" />
+					</div>
+					<input id="addIngBtn" type="button" value="Agregar otro ingrediente" class="btn btn-primary btn-block" ng-click="addIng()" />
+				</div>
+				
 				<div class="instrucciones">
 					<h2>Instrucciones</h2>
 					<div ng-repeat="instruccion in ins track by $index" class="instruccion">
 						<ng-input theme='hoshi' label='Paso {{$index+1}}' ng-required="0" ng-model="ins[$index].instruccion" name="instruccion" ></ng-input>
+						<input id="delInsBtn" type="button" value="&times;" class="btn btn-warning btn-block" ng-click="delIns($index)" />
 					</div>
 					<input id="addInsBtn" type="button" value="Agregar otra instruccion" class="btn btn-primary btn-block" ng-click="addIns()" />
-				</div>
-				<div class="ingredientes">
-					<h2>Ingredientes</h2>
-
-					<div ng-repeat="ingrediente in ing track by $index" class="ingrediente">
-						<ng-input theme='hoshi' label='Ingrediente {{$index+1}}' ng-required="0" ng-model="ing[$index].ingrediente" name="ingrediente{{$index}}" ></ng-input>
-						<ng-input theme='hoshi' label='Cantidad/Notas' ng-required="0" ng-model="ing[$index].cantidad" name="cantidad{{$index}}" ></ng-input>
-					</div>
-					<input id="addIngBtn" type="button" value="Agregar otro ingrediente" class="btn btn-primary btn-block" ng-click="addIng()" />
 				</div>
 				
 				<div class="error" ng-show="nuevaComida.nombre.$invalid && nuevaComida.universidad.$dirty">
