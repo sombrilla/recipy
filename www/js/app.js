@@ -1,37 +1,25 @@
-﻿var app = angular.module('schedular', ['ngRoute', 'mobile-angular-ui', 'ngInput', 'xeditable']);
-var isLogged = false;
-
+﻿var app = angular.module('recipy', ['ngRoute', 'mobile-angular-ui', 'ngInput', 'xeditable']);
 
 app.config(function($routeProvider) {
-  $routeProvider.when('/',  
-	{templateUrl: 'views/guardados.html', reloadOnSearch: false});
-  $routeProvider.when('/ingresar',   
-	{templateUrl: 'views/ingresar.html', reloadOnSearch: false, controller 	: 'main'});
-  $routeProvider.when('/favs',  
-	{templateUrl: 'views/favs.html', reloadOnSearch: false});
-  $routeProvider.when('/login',  
-	{templateUrl: 'views/login.html', reloadOnSearch: false});
-  $routeProvider.otherwise({
+	$routeProvider.when('/',  
+		{templateUrl: 'views/guardados.html', reloadOnSearch: false});
+	$routeProvider.when('/ingresar',   
+		{templateUrl: 'views/ingresar.html', reloadOnSearch: false, controller 	: 'main'});
+	$routeProvider.when('/favs',  
+		{templateUrl: 'views/favs.html', reloadOnSearch: false});
+	$routeProvider.when('/login',  
+		{templateUrl: 'views/login.html', reloadOnSearch: false});
+	$routeProvider.otherwise({
 			redirectTo: '/'	});
 });
 
 app.run(function(editableOptions, editableThemes) {
-  // set `default` theme
   editableOptions.theme = 'default';
-  
-  // overwrite submit button template
   editableThemes['default'].submitTpl = '<button type="submit" class="btn btn-success" ><span class="fa fa-check"></span></button>';
- editableThemes['default'].cancelTpl= '<button type="button" class="btn btn-primary" ng-click="$form.$cancel()"><span class="fa fa-times"></span></button>';
+  editableThemes['default'].cancelTpl= '<button type="button" class="btn btn-primary" ng-click="$form.$cancel()"><span class="fa fa-times"></span></button>';
 });
 
 app.controller("main", function ($scope, $rootScope, $location) {
-	/*
-	if(isLogged){
-		$scope.mensaje="Estas Logueado!"
-	}else{
-		$scope.mensaje="	"
-	}
-	*/
 	$rootScope.salir = function () {
 	    navigator.notification.confirm("Está seguro que desea salir?", onConfirm, "", "Si,No");
 	
@@ -50,7 +38,7 @@ app.controller("guardar", function($scope, $http, $location, $rootScope){
 		$scope.comida = {
 			nombre : dato.nombre,
 			instrucciones : $scope.ins,
-			ingredientes : $scope.ing/*, cantidad : dato.cantidad*/
+			ingredientes : $scope.ing
 		}
 		
 		if (!localStorage.comidas){

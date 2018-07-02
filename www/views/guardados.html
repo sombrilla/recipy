@@ -7,7 +7,7 @@
 				<ul ng-repeat="x in dame track by $index" > 
 					<li><h2 editable-text="x.nombre" onbeforesave="Update($data, $index, 'nombre')">{{x.nombre}}</h2></li>
 					
-					<li><h3>Ingredientes:</h3></li>
+					<li><h3>Ingredientes</h3></li>
 					<ul>
 						<li ng-repeat="i in dame[$index].ingredientes">
 							<span editable-text="i.ingrediente" onbeforesave="Update($data, $index, 'ingrediente')">{{i.ingrediente}}</span>
@@ -15,7 +15,7 @@
 						</li>
 					</ul>
 					
-					<li><h3>Instrucciones:</h3></li>
+					<li><h3>Instrucciones</h3></li>
 					<ol>
 						<li ng-repeat="i in dame[$index].instrucciones" >
 							<span editable-text="i.instruccion" onbeforesave="Update($data, $index, 'instruccion')">{{i.instruccion}}</span>
@@ -30,7 +30,7 @@
 				<h1>{{sinconexion}} </h1> 
 				<ul ng-repeat="x in comidas track by $index">
 					<li><h2 editable-text="x.nombre" onbeforesave="Update($data, $index, 'nombre')">{{x.nombre}}</h2></li>
-					<li><h3>Ingredientes:</h3></li>
+					<li><h3>Ingredientes</h3></li>
 					<ul>
 						<li ng-repeat="i in comidas[$index].ingredientes">
 							<span editable-text="i.ingrediente" onbeforesave="Update($data, $index, 'ingrediente')">{{i.ingrediente}}</span>
@@ -38,7 +38,7 @@
 						</li>
 					</ul>
 					
-					<li><h3>Instrucciones:</h3></li>
+					<li><h3>Instrucciones</h3></li>
 					<ul>
 						<li ng-repeat="i in comidas[$index].instrucciones" >
 							<span editable-text="i.instruccion" onbeforesave="Update($data, $index, 'instruccion')">{{i.instruccion}}</span>
