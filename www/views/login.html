@@ -1,0 +1,22 @@
+﻿<div class="scrollable">  
+	<div class="scrollable-content">
+		<div class="scrollable">
+			<div class="scrollable-content section" ng-controller="guardar">
+				<form name="regUni" ng-submit="guardar(datos)">
+					
+					<div class="form-group">
+						<ng-input theme='hoshi' label='Usuario' ng-required="1" ng-minlength=3 ng-model="datos.nombre" name="nombre" ></ng-input>
+						<ng-input theme='hoshi' label='Contraseña' ng-required="1" ng-minlength=3 ng-model="datos.nombre" name="nombre" ></ng-input>
+						<div class="error" ng-show="regUni.nombre.$invalid && regUni.nombre.$dirty">
+							<span ng-show="regUni.nombre.$error.required">Campo obligatorio</span>
+							<span ng-show="regUni.nombre.$error.minlength">Minimo 3 caracteres</span>
+						</div>
+					
+						<button class="btn btn-primary btn-block" ng-disabled="regUni.$invalid">Guardar</button>
+					</div>
+					
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

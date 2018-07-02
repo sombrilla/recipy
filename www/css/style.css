@@ -1,0 +1,195 @@
+.app-body{
+	text-align:center;
+	background:white;
+}
+
+.app-body form{
+	margin: 0 auto;
+}
+
+.section{
+	padding:0px;
+	padding-bottom:10px;
+}
+
+label{
+	width:120px;
+}
+
+h1{
+	color:rgb(200,200,200);
+}
+
+.banner h1{
+	font-size: 30px;
+	color:white;
+	text-shadow:0 0 3px rgba(0,0,0,0.1);
+	//margin:15px;
+	line-height:25vh;
+}
+
+.banner{
+	background:red;
+	margin:0;
+	height:25vh;
+	background:linear-gradient(
+      rgba(0, 122, 255, 0.45), 
+      rgba(0, 122, 255, 0.45)
+    ),url('../img/banner1.jpg');
+	background-position:center;
+	background-size:100% auto;
+	margin-bottom:15px;
+	vertical-align:middle;
+}
+
+ol{
+	padding-left:1.4em;
+	background:rgba(0, 122, 255, .5);
+	border-radius:5px;
+	width:90%;
+}
+
+ul{
+	list-style:none;
+	padding:5px;
+	background:rgba(0, 122, 255, .5);
+	color:white;
+	border-radius:5px;
+	display:inline-block;
+	width:90%;
+	text-align:left;
+}
+
+
+
+li {
+	padding:0;
+	position:relative;
+}
+
+.ingresar{
+	margin-bottom:10%;
+}
+
+#nombre{
+	margin:0;
+	font-size:18px;
+}
+
+.agregar{
+	position:fixed;
+	bottom:0;
+	left:0;
+	height:10%;
+	border-radius:none;
+}
+
+.choice{
+	background: LightSteelBlue; cursor:pointer;color:white;
+}
+
+.choice_font{
+	color:SlateBlue; font-size :1em;
+}
+
+.problema{
+	font-size:1.2em; color: indianred
+}
+
+.input{ 
+	width:calc(100% - 2em);
+	max-width:500px;
+ }
+
+.ingredientes, .instrucciones{
+	max-width:500px;
+	margin:2% auto;
+	background:rgb(240,240,240);
+	padding:15px;
+	border-radius:5px;
+	box-shadow:2px 3px 1px rgba(0,0,0,.075);
+}
+
+.ingredientes h2, .instrucciones h2{
+	color:rgb(140,140,140);
+	text-align:left;
+	font-size:20px;
+	margin:0;
+	padding:0;
+}
+
+.ingredientes span:nth-child(2){
+	width:25%;
+	margin:0;
+}
+.ingredientes span:nth-child(1) {
+	width:70%;
+	margin:0;
+}
+.instrucciones span{
+	width:95%;
+	margin:0;
+}
+
+.guardados, .favs{
+	position:relative;
+}
+
+.guardados h2, .favs h2{
+	font-size:25px;
+}
+.guardados h3, .favs h3{
+	font-size:14px;
+	font-weight:bold;
+	margin:5px;
+}
+
+.guardados .borrar, .guardados .favorito, .favs .borrar{
+	position:absolute;
+	bottom:0px;
+	right:0;
+	background:#b24747;
+	border-radius:5px;
+	font-size:25px;
+	padding: 0 10px;
+	color:white;
+	box-shadow:0 0 2px rgba(178, 71, 71,.5);
+	transition:all .2s ease;
+}
+
+.guardados .favorito{
+	background:#aad151;
+	right:0px;
+	bottom: 45px;
+	padding: 0 5px;
+	box-shadow:0 0 2px rgba(170, 209, 81,.5);
+}
+
+.guardados .borrar:hover{
+	background:#cc5555;
+	box-shadow:0 0 2px rgba(178, 71, 71,1);
+}
+.guardados .favorito:hover{
+	background:#bce261;
+	box-shadow:0 0 2px rgba(170, 209, 81,1);
+}
+
+.editable{
+	border-bottom:none;
+	color:white;
+}
+
+.editable:hover{
+	color:rgb(200,200,200);
+	cursor:pointer;
+}
+
+.editable-input.editable-has-buttons{
+	width:85%;
+}
+
+.editable-input{
+	color:black;
+	border:none;
+	border-radius:5px;
+}

@@ -1,0 +1,49 @@
+<div class="scrollable">  
+	<div class="scrollable-content">
+		<div class="section guardados" ng-controller="guardar">
+			<div>
+				<div class="banner"><h1>Recetas</h1></div>
+				<!--<h1>{{exito || 'Cargando'}}</h1>-->
+				<ul ng-repeat="x in dame track by $index" > 
+					<li><h2 editable-text="x.nombre" onbeforesave="Update($data, $index, 'nombre')">{{x.nombre}}</h2></li>
+					<li><h3>Instrucciones:</h3></li>
+					<ol>
+						<li ng-repeat="i in dame[$index].instrucciones" >
+							<span editable-text="i.instruccion" onbeforesave="Update($data, $index, 'instruccion')">{{i.instruccion}}</span>
+						</li>
+					</ol>
+					<li><h3>Ingredientes:</h3></li>
+					<ul>
+						<li ng-repeat="i in dame[$index].ingredientes">
+							<span editable-text="i.ingrediente" onbeforesave="Update($data, $index, 'ingrediente')">{{i.ingrediente}}</span>
+							(<span editable-text="i.cantidad" onbeforesave="Update($data, $index, 'cantidad')">{{i.cantidad}}</span>)
+						</li>
+					</ul>
+					<li><a class="favorito" href="#" ng-click="guardarFav(x)">&#10084;</a></li>
+					<li><a class="borrar" href="#" ng-click="borrar($index)">&times;</a></li>
+				</ul>
+			</div>
+			<div>
+				<h1>{{sinconexion}} </h1> 
+				<ul ng-repeat="x in comidas track by $index">
+					<li><h2 editable-text="x.nombre" onbeforesave="Update($data, $index, 'nombre')">{{x.nombre}}</h2></li>
+					<li><h3>Instrucciones:</h3></li>
+					<ul>
+						<li ng-repeat="i in comidas[$index].instrucciones" >
+							<span editable-text="i.instruccion" onbeforesave="Update($data, $index, 'instruccion')">{{i.instruccion}}</span>
+						</li>
+					</ul>
+					<li><h3>Ingredientes:</h3></li>
+					<ul>
+						<li ng-repeat="i in comidas[$index].ingredientes">
+							<span editable-text="i.ingrediente" onbeforesave="Update($data, $index, 'ingrediente')">{{i.ingrediente}}</span>
+							(<span editable-text="i.cantidad" onbeforesave="Update($data, $index, 'cantidad')">{{i.cantidad}}</span>)
+						</li>
+					</ul>
+					<li><a class="favorito" href="#" ng-click="guardarFav(x)">&#10084;</a></li>
+					<li><a class="borrar" href="#" ng-click="borrar($index)">&times;</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
