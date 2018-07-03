@@ -2,7 +2,7 @@
 id="com.beldi.recipy" version="1.0.0">
   <name>Recipy</name>
   <description></description>
-   <author email="juaan.beldi@hotmail.com" href="http://schedular.atwebpages.com">MG</author>
+   <author email="juaan.beldi@hotmail.com" href="http://schedular.atwebpages.com">Juan Beldi</author>
   <content src="index.html"/>
   <preference name="DisallowOverscroll" value="true"/>
   <preference name="android-minSdkVersion" value="14"/>
